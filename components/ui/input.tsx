@@ -1,15 +1,16 @@
 import * as React from "react"
-
 import { cn } from "@/lib/utils"
 
 /**
- * Extended input props interface.
- * While currently identical to HTMLInputAttributes, this interface
- * exists to allow future extensions while maintaining type safety
- * and consistent component API across the application.
+ * Input component props interface.
+ * Extends HTMLInputElement attributes to maintain consistency with shadcn/ui pattern
+ * and allow for future extensions without breaking changes.
+ * 
+ * @see https://ui.shadcn.com/docs/components/input
  */
-/* eslint-disable-next-line @typescript-eslint/no-empty-interface */
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+}
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {

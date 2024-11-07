@@ -3,7 +3,6 @@
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-empty-interface": "off",
-    "react/no-unescaped-entities": "off",
-    "@typescript-eslint/no-empty-type-args": "off"
+    "react/no-unescaped-entities": "off"
   }
 }
