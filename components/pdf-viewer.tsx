@@ -1,8 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { Document, Page } from 'react-pdf'
-import { pdfjs } from 'react-pdf'
+import { Document, Page, pdfjs } from 'react-pdf'
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
 import 'react-pdf/dist/esm/Page/TextLayer.css'
 import { Button } from "@/components/ui/button"
@@ -110,11 +109,6 @@ export default function PDFViewer({ fileUrl }: PDFViewerProps) {
             file={fileUrl}
             onLoadSuccess={({ numPages }) => setNumPages(numPages)}
             loading="Loading PDF..."
-            options={{
-              cMapUrl: 'cmaps/',
-              cMapPacked: true,
-              standardFontDataUrl: 'standard_fonts/',
-            }}
           >
             {Array.from(new Array(numPages), (el, index) => (
               <Page
