@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
-import { X, Send, Upload } from 'lucide-react'
+import { Send, Upload, FileX } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -135,12 +135,12 @@ export function PdfChatApp() {
         {file ? (
           <>
             <Button 
-              variant="ghost" 
-              size="icon"
-              className="absolute top-2 right-2 z-10" 
+              variant="outline" 
+              className="absolute top-4 right-8 z-[100] gap-2 bg-white/90 backdrop-blur-sm shadow-md" 
               onClick={clearFile}
             >
-              <X className="h-4 w-4" />
+              <FileX className="h-4 w-4" />
+              <span>Remove PDF</span>
             </Button>
             <ScrollArea className="h-full">
               {fileUrl && <PDFViewer fileUrl={fileUrl} />}
