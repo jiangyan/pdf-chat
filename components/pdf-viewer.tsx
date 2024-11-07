@@ -33,9 +33,8 @@ export default function PDFViewer({ fileUrl }: PDFViewerProps) {
     setRotation(prevRotation => (prevRotation + 90) % 360)
   }
 
-  // Handle drag functionality
   const handleMouseDown = (e: React.MouseEvent) => {
-    if (e.button !== 0) return // Only left click
+    if (e.button !== 0) return
     setIsDragging(true)
     e.preventDefault()
   }
@@ -66,7 +65,6 @@ export default function PDFViewer({ fileUrl }: PDFViewerProps) {
 
   return (
     <div className="relative pdf-container h-full">
-      {/* Moved controls up by changing top-8 to top-4 */}
       <div className="fixed top-4 left-8 flex gap-2 p-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-md z-[100]">
         <Button
           variant="outline"
@@ -99,7 +97,6 @@ export default function PDFViewer({ fileUrl }: PDFViewerProps) {
         </Button>
       </div>
 
-      {/* Scrollable and draggable container */}
       <div 
         ref={containerRef}
         className="overflow-auto h-full cursor-grab active:cursor-grabbing"
@@ -108,30 +105,31 @@ export default function PDFViewer({ fileUrl }: PDFViewerProps) {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
       >
-        <Document
-          file={fileUrl}
-          onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-          loading="Loading PDF..."
-          className="pdf-document"
-        >
-          {Array.from(new Array(numPages), (el, index) => (
-            <Page
-              key={`page_${index + 1}`}
-              pageNumber={index + 1}
-              scale={scale}
-              rotate={rotation}
-              renderTextLayer={true}
-              renderAnnotationLayer={true}
-              renderInteractiveForms={true}
-              className="pdf-page-container mb-4"
-              loading="Loading page..."
-              customTextRenderer={false}
-              renderMode="canvas"
-              canvasBackground="#fff"
-              quality={2}
-            />
-          ))}
-        </Document>
+        <div className="pdf-document">
+          <Document
+            file={fileUrl}
+            onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+            loading="Loading PDF..."
+          >
+            {Array.from(new Array(numPages), (el, index) => (
+              <Page
+                key={`page_${index + 1}`}
+                pageNumber={index + 1}
+                scale={scale}
+                rotate={rotation}
+                renderTextLayer={true}
+                renderAnnotationLayer={true}
+                renderInteractiveForms={true}
+                className="pdf-page-container mb-4"
+                loading="Loading page..."
+                customTextRenderer={false}
+                renderMode="canvas"
+                canvasBackground="#fff"
+                quality={2}
+              />
+            ))}
+          </Document>
+        </div>
       </div>
     </div>
   )
