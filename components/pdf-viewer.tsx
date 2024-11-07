@@ -110,6 +110,11 @@ export default function PDFViewer({ fileUrl }: PDFViewerProps) {
             file={fileUrl}
             onLoadSuccess={({ numPages }) => setNumPages(numPages)}
             loading="Loading PDF..."
+            options={{
+              cMapUrl: 'cmaps/',
+              cMapPacked: true,
+              standardFontDataUrl: 'standard_fonts/',
+            }}
           >
             {Array.from(new Array(numPages), (el, index) => (
               <Page
@@ -133,4 +138,4 @@ export default function PDFViewer({ fileUrl }: PDFViewerProps) {
       </div>
     </div>
   )
-} 
+}
