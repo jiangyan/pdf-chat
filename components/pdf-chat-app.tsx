@@ -157,7 +157,7 @@ export function PdfChatApp() {
             ) : (
               <div className="text-center">
                 <Upload className="mx-auto h-12 w-12 text-gray-400" />
-                <p>Drag 'n' drop a PDF file here, or click to select one</p>
+                <p>Drag &apos;n&apos; drop a PDF file here, or click to select one</p>
               </div>
             )}
           </div>

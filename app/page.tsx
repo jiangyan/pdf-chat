@@ -1,4 +1,5 @@
-import Image from "next/image";
+// Remove or comment out the unused import
+// import Image from "next/image";
 
 export default function Home() {
   return (
