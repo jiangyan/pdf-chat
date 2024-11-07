@@ -35,7 +35,7 @@ export async function POST(req: Request) {
 
     const response = await anthropic.beta.messages.create({
       model: 'claude-3-5-sonnet-20241022',
-      max_tokens: 1024,
+      max_tokens: 4096,
       temperature: 0.7,
       betas: ["pdfs-2024-09-25"],
       messages: formattedMessages,

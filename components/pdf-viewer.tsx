@@ -6,7 +6,6 @@ import { pdfjs } from 'react-pdf'
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
 import 'react-pdf/dist/esm/Page/TextLayer.css'
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { ZoomIn, ZoomOut, RotateCw } from 'lucide-react'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`
@@ -20,7 +19,6 @@ export default function PDFViewer({ fileUrl }: PDFViewerProps) {
   const [scale, setScale] = useState<number>(1.5)
   const [rotation, setRotation] = useState<number>(0)
   const [isDragging, setIsDragging] = useState(false)
-  const [position, setPosition] = useState({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
 
   const zoomIn = () => {
