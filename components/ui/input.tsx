@@ -2,15 +2,13 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 /**
- * Input component props interface.
- * Extends HTMLInputElement attributes to maintain consistency with shadcn/ui pattern
- * and allow for future extensions without breaking changes.
+ * Input component props type.
+ * Extends HTMLInputElement attributes to maintain consistency with shadcn/ui pattern.
+ * Using type alias instead of interface as we're not extending this further.
  * 
  * @see https://ui.shadcn.com/docs/components/input
  */
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-}
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement>
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
