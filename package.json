@@ -25,6 +25,9 @@
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },
+  "overrides": {
+    "tar": ">=7.5.8"
+  },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
